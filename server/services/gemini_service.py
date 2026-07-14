@@ -116,7 +116,7 @@ def analyze_enroute_weather_with_gemini(
             reason="GEMINI_API_KEY environment variable is missing.",
         )
 
-    model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    model_name = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
 
     try:
         prompt = prompt_path.read_text(encoding="utf-8")

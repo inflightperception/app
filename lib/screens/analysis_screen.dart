@@ -711,8 +711,6 @@ class AnalysisScreen extends StatelessWidget {
     final components = [
       data.enrouteWeather,
       data.destinationWeather,
-      data.alternateWeather,
-      data.appliedRules,
     ];
 
     if (crossAxisCount == 4) {
