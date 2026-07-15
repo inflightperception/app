@@ -20,7 +20,7 @@ class OfpData {
     this.destination,
     this.date,
     this.ofpVersion,
-    this.destAlternates  = const [],
+    this.destAlternates = const [],
     this.enrouteAirports = const [],
     this.etd,
     this.eta,
@@ -31,7 +31,7 @@ class OfpData {
   // ---- COMPUTED ----
   double? get blockFuel {
     if (taxiTime == null || plntofTime == null) return null;
-    final taxi  = double.tryParse(taxiTime!);
+    final taxi = double.tryParse(taxiTime!);
     final plntof = double.tryParse(plntofTime!);
     if (taxi == null || plntof == null) return null;
     return taxi + plntof;

@@ -10,25 +10,25 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   // ---- controllers ----
-  final _nameController  = TextEditingController(text: 'Flavio Bellomo');
+  final _nameController = TextEditingController(text: 'Flavio Bellomo');
   final _emailController = TextEditingController(text: 'flavio@gmail.com');
 
   // ---- notification toggles ----
-  bool _emailAlerts      = true;
-  bool _weeklySummary    = true;
-  bool _pilotAnomalies   = false;
+  bool _emailAlerts = true;
+  bool _weeklySummary = true;
+  bool _pilotAnomalies = false;
 
   // ---- edit mode ----
   bool _isEditingProfile = false;
-  bool _isSaving         = false;
+  bool _isSaving = false;
 
   // ---- colori (stessa palette) ----
-  static const _bgColor       = Color(0xFFF2F4F7);
-  static const _cardColor     = Colors.white;
-  static const _accentColor   = Color(0xFF3B6FD4);
-  static const _textPrimary   = Color(0xFF1A1D23);
+  static const _bgColor = Color(0xFFF2F4F7);
+  static const _cardColor = Colors.white;
+  static const _accentColor = Color(0xFF3B6FD4);
+  static const _textPrimary = Color(0xFF1A1D23);
   static const _textSecondary = Color(0xFF6B7280);
-  static const _borderColor   = Color(0xFFE5E7EB);
+  static const _borderColor = Color(0xFFE5E7EB);
 
   @override
   void dispose() {
@@ -189,7 +189,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               : () => setState(() => _isEditingProfile = false),
                           child: const Text(
                             'Cancel',
-                            style: TextStyle(color: _textSecondary, fontSize: 13),
+                            style: TextStyle(
+                              color: _textSecondary,
+                              fontSize: 13,
+                            ),
                           ),
                         ),
                         const SizedBox(width: 8),
@@ -204,7 +207,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                              padding: const EdgeInsets.symmetric(horizontal: 16),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                              ),
                             ),
                             child: _isSaving
                                 ? const SizedBox(
@@ -217,7 +222,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   )
                                 : const Text(
                                     'Save',
-                                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                           ),
                         ),
@@ -225,10 +233,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     )
                   : TextButton.icon(
                       onPressed: () => setState(() => _isEditingProfile = true),
-                      icon: const Icon(Icons.edit_outlined, size: 15, color: _accentColor),
+                      icon: const Icon(
+                        Icons.edit_outlined,
+                        size: 15,
+                        color: _accentColor,
+                      ),
                       label: const Text(
                         'Edit',
-                        style: TextStyle(fontSize: 13, color: _accentColor, fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: _accentColor,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                       style: TextButton.styleFrom(
                         padding: const EdgeInsets.symmetric(horizontal: 4),
@@ -282,39 +298,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
           const SizedBox(height: 20),
 
           // fields
-          LayoutBuilder(builder: (context, constraints) {
-            final isWide = constraints.maxWidth > 480;
-            final nameField = _buildProfileField(
-              label: 'Full Name',
-              controller: _nameController,
-              enabled: _isEditingProfile,
-              icon: Icons.person_outline_rounded,
-            );
-            final emailField = _buildProfileField(
-              label: 'Email',
-              controller: _emailController,
-              enabled: _isEditingProfile,
-              icon: Icons.alternate_email_rounded,
-              keyboardType: TextInputType.emailAddress,
-            );
-
-            if (isWide) {
-              return Row(
-                children: [
-                  Expanded(child: nameField),
-                  const SizedBox(width: 16),
-                  Expanded(child: emailField),
-                ],
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final isWide = constraints.maxWidth > 480;
+              final nameField = _buildProfileField(
+                label: 'Full Name',
+                controller: _nameController,
+                enabled: _isEditingProfile,
+                icon: Icons.person_outline_rounded,
               );
-            }
-            return Column(
-              children: [
-                nameField,
-                const SizedBox(height: 16),
-                emailField,
-              ],
-            );
-          }),
+              final emailField = _buildProfileField(
+                label: 'Email',
+                controller: _emailController,
+                enabled: _isEditingProfile,
+                icon: Icons.alternate_email_rounded,
+                keyboardType: TextInputType.emailAddress,
+              );
+
+              if (isWide) {
+                return Row(
+                  children: [
+                    Expanded(child: nameField),
+                    const SizedBox(width: 16),
+                    Expanded(child: emailField),
+                  ],
+                );
+              }
+              return Column(
+                children: [nameField, const SizedBox(height: 16), emailField],
+              );
+            },
+          ),
         ],
       ),
     );
@@ -347,8 +361,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
           decoration: InputDecoration(
             prefixIcon: Icon(icon, size: 17, color: _textSecondary),
             filled: true,
-            fillColor: enabled ? const Color(0xFFF8F9FB) : const Color(0xFFF3F4F6),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 13),
+            fillColor: enabled
+                ? const Color(0xFFF8F9FB)
+                : const Color(0xFFF3F4F6),
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 14,
+              vertical: 13,
+            ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(color: _borderColor),
@@ -398,7 +417,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     const SizedBox(height: 4),
                     const Text(
                       'Can upload OFPs, view analytics, and manage pilot data',
-                      style: TextStyle(fontSize: 13, color: _textSecondary, height: 1.4),
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: _textSecondary,
+                        height: 1.4,
+                      ),
                     ),
                     const SizedBox(height: 16),
                     // permission chips
@@ -406,9 +429,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       spacing: 8,
                       runSpacing: 8,
                       children: [
-                        _buildPermissionChip(Icons.upload_file_rounded, 'Upload OFPs'),
-                        _buildPermissionChip(Icons.analytics_rounded, 'View Analytics'),
-                        _buildPermissionChip(Icons.people_outline_rounded, 'Manage Pilots'),
+                        _buildPermissionChip(
+                          Icons.upload_file_rounded,
+                          'Upload OFPs',
+                        ),
+                        _buildPermissionChip(
+                          Icons.analytics_rounded,
+                          'View Analytics',
+                        ),
+                        _buildPermissionChip(
+                          Icons.people_outline_rounded,
+                          'Manage Pilots',
+                        ),
                       ],
                     ),
                   ],
@@ -417,7 +449,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
               const SizedBox(width: 16),
               // active badge
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 5,
+                ),
                 decoration: BoxDecoration(
                   color: const Color(0xFFF0F4FF),
                   borderRadius: BorderRadius.circular(20),
@@ -439,11 +474,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
           const SizedBox(height: 12),
           Row(
             children: [
-              const Icon(Icons.info_outline_rounded, size: 15, color: _textSecondary),
+              const Icon(
+                Icons.info_outline_rounded,
+                size: 15,
+                color: _textSecondary,
+              ),
               const SizedBox(width: 6),
               Text(
                 'Contact your administrator to change your role.',
-                style: TextStyle(fontSize: 12, color: _textSecondary.withOpacity(0.8)),
+                style: TextStyle(
+                  fontSize: 12,
+                  color: _textSecondary.withOpacity(0.8),
+                ),
               ),
             ],
           ),
@@ -467,7 +509,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
           const SizedBox(width: 5),
           Text(
             label,
-            style: const TextStyle(fontSize: 12, color: _textSecondary, fontWeight: FontWeight.w500),
+            style: const TextStyle(
+              fontSize: 12,
+              color: _textSecondary,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ],
       ),
@@ -523,7 +569,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
         Expanded(
           child: Text(
             label,
-            style: const TextStyle(fontSize: 14, color: _textPrimary, height: 1.3),
+            style: const TextStyle(
+              fontSize: 14,
+              color: _textPrimary,
+              height: 1.3,
+            ),
           ),
         ),
         const SizedBox(width: 16),

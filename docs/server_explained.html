@@ -167,10 +167,10 @@ pip install -r requirements.txt
 uvicorn main:app --reload --port 8080</pre>
 
   <p>Then test it:</p>
-  <pre>curl http://127.0.0.1:8080/health</pre>
+  <pre>curl https://perception-api-745432017149.europe-west1.run.app/health</pre>
 
   <p>Upload a PDF:</p>
-  <pre>curl -F "file=@/path/to/ofp.pdf" http://127.0.0.1:8080/analyze</pre>
+  <pre>curl -F "file=@/path/to/ofp.pdf" https://perception-api-745432017149.europe-west1.run.app/analyze</pre>
 
   <h2>7. Deployment Flow</h2>
   <p>Later, from the project root, the server can be deployed to Cloud Run:</p>

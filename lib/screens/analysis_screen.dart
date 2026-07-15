@@ -708,10 +708,7 @@ class AnalysisScreen extends StatelessWidget {
   // ── COMPONENTS GRID ───────────────────────────────────────────────────────
 
   Widget _buildComponentsGrid({required int crossAxisCount}) {
-    final components = [
-      data.enrouteWeather,
-      data.destinationWeather,
-    ];
+    final components = [data.enrouteWeather, data.destinationWeather];
 
     if (crossAxisCount == 4) {
       return Row(

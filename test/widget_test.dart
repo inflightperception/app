@@ -8,7 +8,10 @@ void main() {
     expect(find.text('Overflow'), findsOneWidget);
     expect(find.text('Fuel Intelligence Platform'), findsOneWidget);
     expect(find.text('New user? Create an account now'), findsOneWidget);
-    expect(find.textContaining('Overflow helps pilots and operations teams'), findsOneWidget);
+    expect(
+      find.textContaining('Overflow helps pilots and operations teams'),
+      findsOneWidget,
+    );
     expect(find.text('12,400+'), findsNothing);
   });
 }

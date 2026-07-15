@@ -25,7 +25,8 @@ class PdfService {
 
   static Future<String> saveTextToFile(String text, String pdfFileName) async {
     final baseName = pdfFileName.replaceAll(
-      RegExp(r'\.pdf$', caseSensitive: false), '',
+      RegExp(r'\.pdf$', caseSensitive: false),
+      '',
     );
 
     final homeDir = Platform.environment['HOME'] ?? '.';
@@ -43,6 +44,6 @@ class PdfService {
     final parsedPath = '${outputDir.path}/${baseName}_parsed.txt';
     await File(parsedPath).writeAsString(data.toString(), flush: true);
 
-    return parsedPath;   // restituisce il path del file parsato
+    return parsedPath; // restituisce il path del file parsato
   }
 }

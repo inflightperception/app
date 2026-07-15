@@ -15,14 +15,14 @@ uvicorn main:app --reload --port 8080
 Health check:
 
 ```bash
-curl http://127.0.0.1:8080/
-curl http://127.0.0.1:8080/health
+curl https://perception-api-745432017149.europe-west1.run.app/
+curl https://perception-api-745432017149.europe-west1.run.app/health
 ```
 
 Upload a PDF:
 
 ```bash
-curl -F "file=@/path/to/ofp.pdf" http://127.0.0.1:8080/analyze
+curl -F "file=@/path/to/ofp.pdf" https://perception-api-745432017149.europe-west1.run.app/analyze
 ```
 
 ## Cloud Run
