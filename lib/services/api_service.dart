@@ -40,7 +40,7 @@ class PdfUploadResponse {
 class ApiService {
   static const String baseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'http://127.0.0.1:8000',
+    defaultValue: 'https://perception-api-745432017149.europe-west1.run.app',
   );
 
   static Future<PdfUploadResponse> uploadPdf(File file) async {
